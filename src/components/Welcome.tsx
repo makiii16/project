@@ -11,6 +11,7 @@ const Welcome = () => {
                             Upamo, da boste v našem novem spletnem okolju imeli lažji, boljši in hitrejši nakup vstopnic, številne priložnosti
                             in druge ugodnosti za uporabnike..</p>
                         <p>
+                            
                         </p>
                     </div>
                 </div>

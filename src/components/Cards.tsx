@@ -3,33 +3,37 @@ import axios from "axios";
 import Card from "./Card";
 
 const Cards = () => {
-    const [cards, setCards] = useState([]);
+    const[cards,setCards] = useState([]);
 
     const loadCards = async () => {
-        const res = await axios.get('http://localhost:3001/concerts', {withCredentials: true});
-
-
-        if (res.status == 200) {
+        const res = await axios.get('http://localhost:3001/concert',{withCredentials: true});
+        if (res.status === 200) {
+            console.log(res.data);
             setCards(res.data);
         }
     }
 
-    useEffect(() => {
+    useEffect(()=>{
         loadCards();
-    }, []);
+    },[]);
 
-    if(cards.length > 0) {
+    if(cards.length>0) {
         return (
             <>
                 {cards.map((card: any, i) => {
-                    return <Card cardData={card} key={i} />;
+                    console.log(card);
+                    return <Card cardData={card} key={i} id={card.id}/>;
                 })
                 }
             </>
         );
     }
+
     return (
-        <h1></h1>
+        <h1>Ni koncertov</h1>
     );
+
+
 }
+
 export default Cards;

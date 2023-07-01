@@ -16,6 +16,7 @@ const Nav = () => {
                                     <li><a href="/Login" className="text-white">Prijava</a></li>
                                     <li><a href="/Register" className="text-white">Registracija</a></li>
                                     <li><a href="/Me" className="text-white">Profil</a></li>
+                                    <li><a href="/Create" className="text-white">Dodaj koncert</a></li>
                                 </ul>
                             </div>
                         </div>

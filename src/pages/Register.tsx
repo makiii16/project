@@ -29,17 +29,13 @@ const Register = () => {
         console.log(res);
 
         if(res.status == 201) {
-            //uspešno kreiran user, preusmerim ga na login
             setRedirect(true);
 
         }
 
-        //FIXME backend s try - catch v primeru errorja
         if(res.status !== 201) {
             setErrorText('Napaka v podatkih');
         }
-
-
     }
 
     if (redirect) {

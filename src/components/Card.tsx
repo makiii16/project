@@ -1,6 +1,20 @@
 import React from "react";
+import axios from "axios";
+import {Navigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Card = ({cardData}:{cardData:any}) => {
+
+const Card = ({cardData, id}:{cardData:any, id: number}) => {
+    console.log(cardData);
+
+    async function clickDelete(){
+        const res = await axios.delete('http://localhost:3001/concert/'+cardData.id, {withCredentials: true});
+        window.location.reload();
+        window.alert("A ste prepričani?");
+    }
+    async function clickUpdate(){
+        return <Navigate to = {`/update_concert/${cardData.id}`}/>
+    }
     return (
         <>
             <div className="col">
@@ -17,10 +31,9 @@ const Card = ({cardData}:{cardData:any}) => {
                         <p className="card-text">{cardData.content}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-outline-secondary">View
-                                </button>
-                                <button type="button" className="btn btn-sm btn-outline-secondary">Edit
-                                </button>
+                                <Link to={`/update_concert/${cardData.id}`}>
+                                    <button type="button"  className="btn btn-sm btn-outline-secondary">Uredi</button></Link>
+                                <button type="button" onClick={clickDelete} className="btn btn-sm btn-outline-secondary">Briši</button>
                             </div>
                             <small className="text-muted">9 mins</small>
                         </div>
@@ -32,3 +45,4 @@ const Card = ({cardData}:{cardData:any}) => {
 }
 
 export default Card;
+

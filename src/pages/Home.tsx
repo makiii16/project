@@ -1,11 +1,11 @@
 import React from "react";
 import Welcome from "../components/Welcome";
-import Login from "./Login";
-import Register from "./Register";
 import Cards from "../components/Cards";
 
 const Home = () => {
+
     return (
+
         <>
             <Welcome />
             <div className="album py-5 bg-light">
@@ -15,9 +15,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Login />
-            <Register />
         </>
     );
 }
+
 export default Home;
